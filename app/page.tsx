@@ -25,7 +25,7 @@ export default function TattooStudioSite() {
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <div>
             <h1 className="text-sm md:text-base tracking-[0.5em] uppercase font-black">
-              MENNA
+              VANTA SIGIL
             </h1>
           </div>
 
@@ -246,7 +246,7 @@ Idea: ${idea}`;
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 justify-between items-start">
           <div>
             <h4 className="text-3xl md:text-5xl uppercase font-black tracking-[-0.05em] mb-4">
-              MENNA
+              Vanta Sigil
             </h4>
 
             <p className="text-white/40 uppercase tracking-[0.25em] text-xs">
