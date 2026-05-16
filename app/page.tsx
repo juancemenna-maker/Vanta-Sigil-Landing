@@ -109,7 +109,7 @@ useEffect(() => {
 
   {/* FLOATING SIGILS COMPOSITION */}
 <motion.img
-  src="/images/sigils-combined.png"
+  src="/images/sigils-combined.webp"
   alt=""
   animate={{
     y: [0, -20, 0],
@@ -121,12 +121,11 @@ useEffect(() => {
     repeat: Infinity,
     ease: "easeInOut",
   }}
-  className="absolute w-[900px] md:w-[1200px] opacity-[0.08] pointer-events-none select-none blur-[0.5px]"
-/>
+className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen pointer-events-none select-none will-change-transform"/>
 
 {/* PARTICLES */}
 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-  {[...Array(40)].map((_, i) => (
+  {[...Array(20)].map((_, i) => (
     <motion.div
       key={i}
       className="absolute w-[2px] h-[2px] bg-white rounded-full opacity-20"
@@ -171,27 +170,7 @@ useEffect(() => {
   {/* CONTENT */}
   <div className="relative z-20 text-center max-w-5xl">
 
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2 }}
-      className="mb-12 flex justify-center"
-    >
-      <motion.img
-        src="/images/logo.png"
-        alt="Vanta Sigil"
-        animate={{
-          y: [0, -12, 0],
-          rotate: [0, 1, -1, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="w-[220px] md:w-[300px] drop-shadow-[0_0_40px_rgba(255,255,255,0.25)]"
-      />
-    </motion.div>
+  
 
     <motion.p
       initial={{ opacity: 0 }}
