@@ -103,34 +103,162 @@ export default function TattooStudioSite() {
       </section>
 
       {/* GALLERY */}
-      <section id="work" className="max-w-7xl mx-auto px-6 pb-32">
-        <div className="grid md:grid-cols-2 gap-8">
-          {gallery.map((image, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10" />
+      {/* WORKS */}
+<section id="work" className="max-w-7xl mx-auto px-6 pb-32">
+  <div className="flex items-center justify-between mb-10">
+    <div>
+      <p className="uppercase tracking-[0.3em] text-white/30 text-xs mb-3">
+        Archive
+      </p>
 
-              <img
-                src={image}
-                alt="tattoo"
-                className="w-full h-[700px] object-cover group-hover:scale-[1.03] transition duration-700"
-              />
+      <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
+        Works
+      </h3>
+    </div>
 
-              <div className="absolute bottom-0 left-0 z-20 p-8">
-                <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-2">
-                  Archive 0{index + 1}
-                </p>
+    <button className="w-14 h-14 rounded-full border border-white/10 text-3xl hover:bg-white hover:text-black transition">
+      +
+    </button>
+  </div>
 
-                <h4 className="text-3xl uppercase font-black tracking-tight">
-                  Experimental
-                </h4>
-              </div>
-            </div>
-          ))}
+  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+    {gallery.map((image, index) => (
+      <div
+        key={index}
+        className="min-w-[320px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
+      >
+        <img
+          src={image}
+          alt="tattoo"
+          className="w-full h-[600px] object-cover group-hover:scale-105 transition duration-700"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+        <div className="absolute bottom-0 left-0 p-8">
+          <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-2">
+            Work 0{index + 1}
+          </p>
+
+          <h4 className="text-3xl uppercase font-black">
+            Vanta Piece
+          </h4>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* OBJECTS */}
+<section className="max-w-7xl mx-auto px-6 pb-32">
+  <div className="flex items-center justify-between mb-10">
+    <div>
+      <p className="uppercase tracking-[0.3em] text-white/30 text-xs mb-3">
+        Visual Collection
+      </p>
+
+      <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
+        Objects
+      </h3>
+    </div>
+
+    <button className="w-14 h-14 rounded-full border border-white/10 text-3xl hover:bg-white hover:text-black transition">
+      +
+    </button>
+  </div>
+
+  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+    {gallery.map((image, index) => (
+      <div
+        key={index}
+        className="min-w-[280px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
+      >
+        <img
+          src={image}
+          alt="object"
+          className="w-full h-[500px] object-cover group-hover:scale-105 transition duration-700"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+
+        <div className="absolute bottom-0 left-0 p-6">
+          <h4 className="uppercase font-black text-2xl">
+            Print / Object
+          </h4>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* DROPS */}
+<section className="max-w-7xl mx-auto px-6 pb-40">
+  <div className="flex items-center justify-between mb-10">
+    <div>
+      <p className="uppercase tracking-[0.3em] text-white/30 text-xs mb-3">
+        Future Capsules
+      </p>
+
+      <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
+        Drops
+      </h3>
+    </div>
+
+    <button className="w-14 h-14 rounded-full border border-white/10 text-3xl hover:bg-white hover:text-black transition">
+      +
+    </button>
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-6">
+    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] flex flex-col justify-between">
+      <div>
+        <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
+          001
+        </p>
+
+        <h4 className="text-3xl uppercase font-black">
+          Jewelry
+        </h4>
+      </div>
+
+      <p className="text-white/40 text-sm uppercase tracking-[0.2em]">
+        Coming Soon
+      </p>
+    </div>
+
+    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] flex flex-col justify-between">
+      <div>
+        <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
+          002
+        </p>
+
+        <h4 className="text-3xl uppercase font-black">
+          Apparel
+        </h4>
+      </div>
+
+      <p className="text-white/40 text-sm uppercase tracking-[0.2em]">
+        Future Drop
+      </p>
+    </div>
+
+    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] flex flex-col justify-between">
+      <div>
+        <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
+          003
+        </p>
+
+        <h4 className="text-3xl uppercase font-black">
+          Sigil Objects
+        </h4>
+      </div>
+
+      <p className="text-white/40 text-sm uppercase tracking-[0.2em]">
+        Archive Pending
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* STRIP */}
       <section className="border-y border-white/10 py-10 overflow-hidden">
