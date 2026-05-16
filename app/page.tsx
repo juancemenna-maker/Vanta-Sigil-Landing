@@ -48,7 +48,7 @@ useEffect(() => {
           top: `${y - 20}px`,
         },
         {
-          duration: 300,
+          duration: 80,
           fill: "forwards",
         }
       );
@@ -107,38 +107,48 @@ useEffect(() => {
   {/* GRAIN */}
   <div className="absolute inset-0 opacity-[0.04] mix-blend-screen bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-  {/* SIGIL BACKGROUND */}
-  <motion.img
-    src="/images/sigil1.png"
-    alt=""
-    initial={{ opacity: 0, scale: 0.9 }}
-    animate={{
-      opacity: 0.06,
-      scale: 1,
-      rotate: 2,
-    }}
-    transition={{
-      duration: 4,
-      ease: "easeOut",
-    }}
-    className="absolute w-[900px] max-w-none opacity-10 pointer-events-none select-none"
-  />
+  {/* FLOATING SIGILS COMPOSITION */}
+<motion.img
+  src="/images/sigils-combined.png"
+  alt=""
+  animate={{
+    y: [0, -20, 0],
+    rotate: [0, 1.5, -1.5, 0],
+    scale: [1, 1.02, 1],
+  }}
+  transition={{
+    duration: 12,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute w-[900px] md:w-[1200px] opacity-[0.08] pointer-events-none select-none blur-[0.5px]"
+/>
 
-  {/* FLOATING SYMBOL */}
-  <motion.img
-    src="/images/sigil2.png"
-    alt=""
-    animate={{
-      y: [0, -20, 0],
-      rotate: [0, 2, -2, 0],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="absolute left-[10%] top-[20%] w-40 opacity-[0.07] blur-[1px]"
-  />
+{/* PARTICLES */}
+<div className="absolute inset-0 overflow-hidden pointer-events-none">
+  {[...Array(40)].map((_, i) => (
+    <motion.div
+      key={i}
+      className="absolute w-[2px] h-[2px] bg-white rounded-full opacity-20"
+      initial={{
+        x: Math.random() * 2000,
+        y: Math.random() * 1200,
+      }}
+      animate={{
+        y: [null, -100],
+        opacity: [0, 0.3, 0],
+      }}
+      transition={{
+        duration: 5 + Math.random() * 10,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+    />
+  ))}
+</div>
+
+{/* EXTRA GLOW */}
+<div className="absolute w-[1000px] h-[1000px] rounded-full bg-white/[0.03] blur-[220px]" />
 
   {/* SIDE GLYPH */}
   <motion.img
