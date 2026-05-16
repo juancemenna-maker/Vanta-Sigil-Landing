@@ -295,75 +295,71 @@ export default function TattooStudioSite() {
         </div>
 
         <form
-          className="space-y-5"
-          onSubmit={(e) => {
-            e.preventDefault();
+  className="space-y-5"
+  onSubmit={(e) => {
+    e.preventDefault();
 
-            const form = e.target as HTMLFormElement;
+    const form = e.target as HTMLFormElement;
 
-            const name = (
-              form.elements.namedItem("name") as HTMLInputElement
-            ).value;
+    const name = (
+      form.elements.namedItem("name") as HTMLInputElement
+    ).value;
 
-            const whatsapp = (
-              form.elements.namedItem("whatsapp") as HTMLInputElement
-            ).value;
+    const idea = (
+      form.elements.namedItem("idea") as HTMLTextAreaElement
+    ).value;
 
-            const email = (
-              form.elements.namedItem("email") as HTMLInputElement
-            ).value;
-
-            const idea = (
-              form.elements.namedItem("idea") as HTMLTextAreaElement
-            ).value;
-
-            const message = `NEW BOOKING REQUEST
+    const message = `NEW BOOKING REQUEST
 
 Name: ${name}
-WhatsApp: ${whatsapp}
-Email: ${email}
-Idea: ${idea}`;
 
-            const encodedMessage = encodeURIComponent(message);
+Idea:
+${idea}
 
-            window.open(
-              `https://wa.me/5491167339927?text=${encodedMessage}`,
-              "_blank"
-            );
-          }}
-        >
-          <input
-            name="name"
-            type="text"
-            placeholder="Name"
-            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
-          />
+Please attach your references in this chat.`;
 
-          <input
-            name="whatsapp"
-            type="tel"
-            placeholder="+54 9 11 2345 6789"
-            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
-          />
+    const encodedMessage = encodeURIComponent(message);
 
-          <input
-            name="email"
-            type="email"
-            placeholder="Email (optional)"
-            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
-          />
+    window.open(
+      `https://wa.me/54911TU_NUMERO?text=${encodedMessage}`,
+      "_blank"
+    );
+  }}
+>
+  <input
+    name="name"
+    type="text"
+    placeholder="Name"
+    className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
+  />
 
-          <textarea
-            name="idea"
-            rows={6}
-            placeholder="Describe your concept"
-            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
-          />
+  <textarea
+    name="idea"
+    rows={7}
+    placeholder="Idea: approximate size, body placement, blackwork or color, references, concept..."
+    className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
+  />
 
-          <button className="w-full bg-white text-black py-5 rounded-full uppercase tracking-[0.3em] text-xs font-black hover:scale-[1.01] transition">
-            Submit Request
-          </button>
-        </form>
+  <div className="border border-dashed border-white/15 rounded-2xl p-8 bg-white/[0.02]">
+    <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-3">
+      References
+    </p>
+
+    <input
+      type="file"
+      multiple
+      className="text-sm text-white/60 file:mr-4 file:px-4 file:py-2 file:border-0 file:rounded-full file:bg-white file:text-black file:font-bold file:cursor-pointer"
+    />
+
+    <p className="text-xs text-white/30 mt-4 uppercase tracking-[0.2em]">
+      After opening WhatsApp, attach your references in the chat.
+    </p>
+  </div>
+
+  <button className="w-full bg-white text-black py-5 rounded-full uppercase tracking-[0.3em] text-xs font-black hover:scale-[1.01] transition">
+    Open WhatsApp Request
+  </button>
+</form>
       </section>
 
       {/* FOOTER */}
