@@ -6,12 +6,29 @@ import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 
 export default function TattooStudioSite() {
-  const gallery = [
-    "/images/tattoo1.webp",
-    "/images/tattoo2.webp",
-    "/images/tattoo3.webp",
-    "/images/tattoo4.webp",
-  ];
+ const works = [
+  "/images/works/spiral.webp",
+  "/images/works/chakras.webp",
+  "/images/works/sigil-alberto.webp",
+  "/images/works/mc-employee.webp",
+  "/images/works/kohsamui.webp",
+  "/images/works/handsigil.webp",
+  "/images/works/backsigil.webp",
+  "/images/works/malacran.webp",
+  "/images/works/khangi.webp",
+];
+
+const designs = [
+  "/images/designs/design1.webp",
+  "/images/designs/design2.webp",
+  "/images/designs/design3.webp",
+];
+
+const objects = [
+  "/images/objects/object1.webp",
+  "/images/objects/object2.webp",
+  "/images/objects/object3.webp",
+];
 
 useEffect(() => {
   const lenis = new Lenis({
@@ -260,7 +277,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 
   <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-    {gallery.map((image, index) => (
+    {works.map((image, index) => (
       <div
         key={index}
         className="min-w-[320px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
@@ -287,7 +304,8 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 </section>
 
-{/* OBJECTS */}
+
+{/* Designs */}
 <section className="max-w-7xl mx-auto px-6 pb-32">
   <div className="flex items-center justify-between mb-10">
     <div>
@@ -306,7 +324,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 
   <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-    {gallery.map((image, index) => (
+    {designs.map((image, index) => (
       <div
         key={index}
         className="min-w-[280px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
