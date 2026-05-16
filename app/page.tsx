@@ -1,6 +1,10 @@
 
 "use client";
 
+import { motion } from "framer-motion";
+import Lenis from "@studio-freight/lenis";
+import { useEffect } from "react";
+
 export default function TattooStudioSite() {
   const gallery = [
     "/images/tattoo1.webp",
@@ -9,8 +13,52 @@ export default function TattooStudioSite() {
     "/images/tattoo4.webp",
   ];
 
+useEffect(() => {
+  const lenis = new Lenis({
+    duration: 1.2,
+    smoothWheel: true,
+  });
+
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  return () => {
+    lenis.destroy();
+  };
+}, []);
+
+useEffect(() => {
+    const dot = document.querySelector(".cursor-dot") as HTMLElement;
+    const outline = document.querySelector(".cursor-outline") as HTMLElement;
+
+    window.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      dot.style.left = `${x}px`;
+      dot.style.top = `${y}px`;
+
+      outline.animate(
+        {
+          left: `${x - 20}px`,
+          top: `${y - 20}px`,
+        },
+        {
+          duration: 300,
+          fill: "forwards",
+        }
+      );
+    });
+  }, []);
+  
   return (
     <main className="bg-black text-white overflow-hidden min-h-screen selection:bg-white selection:text-black">
+          <div className="cursor-dot" />
+          <div className="cursor-outline" />
       {/* BACKGROUND */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
@@ -50,42 +98,143 @@ export default function TattooStudioSite() {
       </header>
 
       {/* HERO */}
-      <section className="relative h-screen flex items-center justify-center px-6">
-        <div className="text-center relative z-10 max-w-6xl">
-          <p className="uppercase tracking-[0.7em] text-white/30 text-[10px] md:text-xs mb-8">
-            Buenos Aires · Experimental Tattoo Direction
-          </p>
+      {/* HERO */}
+<section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6">
 
-          <h2 className="uppercase font-black leading-[0.85] text-[4rem] md:text-[10rem] lg:text-[12rem] tracking-[-0.05em]">
-            VANTA
-            <br />
-            SIGIL
-          </h2>
+  {/* BACKGROUND */}
+  <div className="absolute inset-0 bg-black" />
 
-          <div className="mt-10 flex items-center justify-center gap-4 flex-col md:flex-row">
-            <a
-              href="#booking"
-              className="px-8 py-4 rounded-full bg-white text-black uppercase tracking-[0.3em] text-xs font-bold hover:scale-105 transition"
-            >
-              Book Session
-            </a>
+  {/* GRAIN */}
+  <div className="absolute inset-0 opacity-[0.04] mix-blend-screen bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-            <a
-              href="#work"
-              className="px-8 py-4 rounded-full border border-white/15 uppercase tracking-[0.3em] text-xs hover:bg-white hover:text-black transition"
-            >
-              Explore Work
-            </a>
-          </div>
-        </div>
+  {/* SIGIL BACKGROUND */}
+  <motion.img
+    src="/images/sigil1.png"
+    alt=""
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{
+      opacity: 0.06,
+      scale: 1,
+      rotate: 2,
+    }}
+    transition={{
+      duration: 4,
+      ease: "easeOut",
+    }}
+    className="absolute w-[900px] max-w-none opacity-10 pointer-events-none select-none"
+  />
 
-        {/* SIGIL */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.06] pointer-events-none">
-          <div className="text-[18rem] md:text-[30rem] font-black tracking-[-0.1em] select-none">
-            ⟁
-          </div>
-        </div>
-      </section>
+  {/* FLOATING SYMBOL */}
+  <motion.img
+    src="/images/sigil2.png"
+    alt=""
+    animate={{
+      y: [0, -20, 0],
+      rotate: [0, 2, -2, 0],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute left-[10%] top-[20%] w-40 opacity-[0.07] blur-[1px]"
+  />
+
+  {/* SIDE GLYPH */}
+  <motion.img
+    src="/images/sigil3.png"
+    alt=""
+    animate={{
+      y: [0, 15, 0],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute right-10 top-1/2 -translate-y-1/2 h-[70vh] opacity-[0.05] hidden md:block"
+  />
+
+  {/* GLOW */}
+  <div className="absolute w-[700px] h-[700px] rounded-full bg-white/10 blur-[180px]" />
+
+  {/* CONTENT */}
+  <div className="relative z-20 text-center max-w-5xl">
+
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2 }}
+      className="mb-12 flex justify-center"
+    >
+      <motion.img
+        src="/images/logo.png"
+        alt="Vanta Sigil"
+        animate={{
+          y: [0, -12, 0],
+          rotate: [0, 1, -1, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="w-[220px] md:w-[300px] drop-shadow-[0_0_40px_rgba(255,255,255,0.25)]"
+      />
+    </motion.div>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+      className="uppercase tracking-[0.6em] text-white/40 text-xs mb-6"
+    >
+      Buenos Aires · Tattoo · Objects · Ritual Design
+    </motion.p>
+
+    <motion.h1
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.7 }}
+      className="text-6xl md:text-[9rem] font-black uppercase tracking-[-0.08em] leading-none mb-8"
+    >
+      Vanta
+      <br />
+      Sigil
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1 }}
+      className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
+    >
+      Tattoo studio and experimental visual archive merging blackwork,
+      symbolic systems, cyber aesthetics and collectible objects.
+    </motion.p>
+
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.2 }}
+      className="flex flex-col md:flex-row gap-4 justify-center"
+    >
+      <a
+        href="#booking"
+        className="px-8 py-5 rounded-full bg-white text-black uppercase tracking-[0.3em] text-xs font-black hover:scale-105 transition"
+      >
+        Request Session
+      </a>
+
+      <a
+        href="#work"
+        className="px-8 py-5 rounded-full border border-white/10 uppercase tracking-[0.3em] text-xs text-white/70 hover:bg-white hover:text-black transition"
+      >
+        Explore Archive
+      </a>
+    </motion.div>
+  </div>
+</section>
 
       {/* MANIFESTO */}
       <section className="max-w-5xl mx-auto px-6 py-32 text-center">
@@ -321,7 +470,7 @@ Please attach your references in this chat.`;
     const encodedMessage = encodeURIComponent(message);
 
     window.open(
-      `https://wa.me/54911TU_NUMERO?text=${encodedMessage}`,
+      `https://wa.me/5491167339927?text=${encodedMessage}`,
       "_blank"
     );
   }}
@@ -336,25 +485,13 @@ Please attach your references in this chat.`;
   <textarea
     name="idea"
     rows={7}
-    placeholder="Idea: approximate size, body placement, blackwork or color, references, concept..."
+    placeholder="Idea: approximate size, body placement, blackwork or color, concept..."
     className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
   />
 
-  <div className="border border-dashed border-white/15 rounded-2xl p-8 bg-white/[0.02]">
-    <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-3">
-      References
-    </p>
-
-    <input
-      type="file"
-      multiple
-      className="text-sm text-white/60 file:mr-4 file:px-4 file:py-2 file:border-0 file:rounded-full file:bg-white file:text-black file:font-bold file:cursor-pointer"
-    />
-
-    <p className="text-xs text-white/30 mt-4 uppercase tracking-[0.2em]">
-      After opening WhatsApp, attach your references in the chat.
-    </p>
-  </div>
+  <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+    Attach references directly in the WhatsApp conversation.
+  </p>
 
   <button className="w-full bg-white text-black py-5 rounded-full uppercase tracking-[0.3em] text-xs font-black hover:scale-[1.01] transition">
     Open WhatsApp Request
