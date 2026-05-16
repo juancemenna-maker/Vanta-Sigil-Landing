@@ -383,12 +383,12 @@ Idea: ${idea}`;
           </div>
 
           <div className="flex flex-col gap-4 uppercase tracking-[0.3em] text-xs text-white/50">
-            <a href="https://instagram.com" className="hover:text-white">
+            <a href="https://instagram.com/vantasigil" className="hover:text-white">
               Instagram
             </a>
 
-            <a href="mailto:hello@studio.com" className="hover:text-white">
-              hello@studio.com
+            <a href="juancemenna@gmail.com" className="hover:text-white">
+              juancemenna@gmail.com
             </a>
 
             <a
