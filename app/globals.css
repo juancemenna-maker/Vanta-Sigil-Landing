@@ -74,7 +74,8 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 45s linear infinite;
+  animation: marquee 90s linear infinite;
+  animation-delay: 5s;
   width: max-content;
 }
 

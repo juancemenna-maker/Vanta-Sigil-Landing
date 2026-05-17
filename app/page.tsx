@@ -114,9 +114,18 @@ useEffect(() => {
         </div>
       </header>
 
+     
       {/* HERO */}
-      {/* HERO */}
-<section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6">
+
+<motion.div
+  initial={{ opacity: 0, y: 80 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 2.4,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className="relative z-10 text-center"
+></motion.div>
 
   {/* BACKGROUND */}
   <div className="absolute inset-0 bg-black" />
@@ -240,7 +249,6 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       </a>
     </motion.div>
   </div>
-</section>
 
       {/* MANIFESTO */}
       <section className="max-w-5xl mx-auto px-6 py-32 text-center">
