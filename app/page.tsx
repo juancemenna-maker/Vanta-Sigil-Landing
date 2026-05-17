@@ -21,13 +21,13 @@ export default function TattooStudioSite() {
 
 
 const designs = [
+  "/images/objects/sheet.webp",
+  "/images/objects/fullback.webp",
   "/images/objects/flashsheet1.webp",
   "/images/objects/flashsheet2.webp",
   "/images/objects/freehand.webp",
   "/images/objects/sigil.webp",
   "/images/objects/moresigils.webp",
-  "/images/objects/fullback.webp",
-  "/images/objects/sheet.webp",
   "/images/objects/freehand.webp",
 ];
 
