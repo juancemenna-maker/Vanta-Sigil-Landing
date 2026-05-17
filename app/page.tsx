@@ -11,13 +11,16 @@ export default function TattooStudioSite() {
  const works = [
   "/images/works/spiral.webp",
   "/images/works/chakras.webp",
-  "/images/works/sigil-alberto.webp",
+  "/images/works/alacran.webp",
+   "/images/works/khangi.webp",
+   "/images/works/sigil-alberto.webp",
+   "/images/works/handsigil.webp",
   "/images/works/mc-employee.webp",
   "/images/works/kohsamui.webp",
-  "/images/works/handsigil.webp",
+  
   "/images/works/backsigil.webp",
-  "/images/works/alacran.webp",
-  "/images/works/khangi.webp",
+  
+ 
 ];
 
 
