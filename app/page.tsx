@@ -116,16 +116,8 @@ useEffect(() => {
 
      
       {/* HERO */}
+<section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6">
 
-<motion.div
-  initial={{ opacity: 0, y: 80 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    duration: 2.4,
-    ease: [0.22, 1, 0.36, 1],
-  }}
-  className="relative z-10 text-center"
-></motion.div>
 
   {/* BACKGROUND */}
   <div className="absolute inset-0 bg-black" />
@@ -193,80 +185,95 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   {/* GLOW */}
   <div className="absolute w-[700px] h-[700px] rounded-full bg-white/10 blur-[180px]" />
 
-  {/* CONTENT */}
-  <div className="relative z-20 text-center max-w-5xl">
+{/* CONTENT */}
+<motion.div
+  initial={{ opacity: 0, y: 80 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 2.8,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className="relative z-20 text-center max-w-5xl"
+>
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.6, duration: 1.4 }}
+    className="uppercase tracking-[0.6em] text-white/40 text-xs mb-6"
+  >
+    Buenos Aires · Tattoo · Objects · Ritual Design
+  </motion.p>
 
-  
+  <motion.h1
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{
+      delay: 0.8,
+      duration: 2,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="text-6xl md:text-[9rem] font-black uppercase tracking-[-0.08em] leading-none mb-8"
+  >
+    Vanta
+    <br />
+    Sigil
+  </motion.h1>
 
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.5 }}
-      className="uppercase tracking-[0.6em] text-white/40 text-xs mb-6"
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{
+      delay: 1.2,
+      duration: 1.6,
+    }}
+    className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
+  >
+    Tattoo studio and experimental visual archive merging blackwork,
+    symbolic systems, cyber aesthetics and collectible objects.
+  </motion.p>
+
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{
+      delay: 1.5,
+      duration: 1.4,
+    }}
+    className="flex flex-col md:flex-row gap-4 justify-center"
+  >
+    <a
+      href="#booking"
+      className="px-8 py-5 rounded-full bg-white text-black uppercase tracking-[0.3em] text-xs font-black hover:scale-105 transition"
     >
-      Buenos Aires · Tattoo · Objects · Ritual Design
-    </motion.p>
+      Request Session
+    </a>
 
-    <motion.h1
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.7 }}
-      className="text-6xl md:text-[9rem] font-black uppercase tracking-[-0.08em] leading-none mb-8"
+    <a
+      href="#work"
+      className="px-8 py-5 rounded-full border border-white/10 uppercase tracking-[0.3em] text-xs text-white/70 hover:bg-white hover:text-black transition"
     >
-      Vanta
-      <br />
-      Sigil
-    </motion.h1>
+      Explore Archive
+    </a>
+  </motion.div>
+</motion.div>
+</section>
 
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1 }}
-      className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
-    >
-      Tattoo studio and experimental visual archive merging blackwork,
-      symbolic systems, cyber aesthetics and collectible objects.
-    </motion.p>
+{/* MANIFESTO */}
+<section className="max-w-5xl mx-auto px-6 py-32 text-center">
+  <p className="uppercase tracking-[0.4em] text-white/30 text-xs mb-8">
+    Manifesto
+  </p>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.2 }}
-      className="flex flex-col md:flex-row gap-4 justify-center"
-    >
-      <a
-        href="#booking"
-        className="px-8 py-5 rounded-full bg-white text-black uppercase tracking-[0.3em] text-xs font-black hover:scale-105 transition"
-      >
-        Request Session
-      </a>
+  <h3 className="text-3xl md:text-6xl uppercase font-black leading-[1.1] tracking-[-0.04em] text-white/90">
+    Tattooing as identity architecture.
+    <br />
+    Dark symbolism, cyber sigils,
+    <br />
+    brutal textures and skin rituals.
+  </h3>
+</section>
 
-      <a
-        href="#work"
-        className="px-8 py-5 rounded-full border border-white/10 uppercase tracking-[0.3em] text-xs text-white/70 hover:bg-white hover:text-black transition"
-      >
-        Explore Archive
-      </a>
-    </motion.div>
-  </div>
-
-      {/* MANIFESTO */}
-      <section className="max-w-5xl mx-auto px-6 py-32 text-center">
-        <p className="uppercase tracking-[0.4em] text-white/30 text-xs mb-8">
-          Manifesto
-        </p>
-
-        <h3 className="text-3xl md:text-6xl uppercase font-black leading-[1.1] tracking-[-0.04em] text-white/90">
-          Tattooing as identity architecture.
-          <br />
-          Dark symbolism, cyber sigils,
-          <br />
-          brutal textures and skin rituals.
-        </h3>
-      </section>
-
-      {/* GALLERY */}
-      {/* WORKS */}
+{/* WORKS */}
 <section id="work" className="max-w-7xl mx-auto px-6 pb-32">
   <div className="flex items-center justify-between mb-10">
     <div>
@@ -278,8 +285,6 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
         Works
       </h3>
     </div>
-
-   
   </div>
 
   <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
@@ -310,8 +315,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 </section>
 
-
-{/* Designs */}
+{/* DESIGNS */}
 <section className="max-w-7xl mx-auto px-6 pb-32">
   <div className="flex items-center justify-between mb-10">
     <div>
@@ -323,8 +327,6 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
         Objects
       </h3>
     </div>
-
-    
   </div>
 
   <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
@@ -363,8 +365,6 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
         Drops
       </h3>
     </div>
-
-  
   </div>
 
   <div className="grid md:grid-cols-3 gap-6">
