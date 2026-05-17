@@ -3,7 +3,6 @@ import { MercadoPagoConfig, Preference } from "mercadopago";
 
 export const runtime = "nodejs";
 
-// 👇 cliente nuevo
 const client = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN,
 });
@@ -34,11 +33,11 @@ export async function POST(req) {
     });
 
     return NextResponse.json({
-      init_point: result.init_point,
+      init_point: result.init_point, // 🔥 ESTE ES EL FIX CLAVE
     });
 
   } catch (error) {
-    console.error("MP error:", error);
+    console.error("MP ERROR:", error);
 
     return NextResponse.json(
       { error: "Error creating preference" },
