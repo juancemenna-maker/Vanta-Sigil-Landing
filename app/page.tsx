@@ -1,6 +1,8 @@
 
 "use client";
 
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
@@ -14,7 +16,7 @@ export default function TattooStudioSite() {
   "/images/works/kohsamui.webp",
   "/images/works/handsigil.webp",
   "/images/works/backsigil.webp",
-  "/images/works/malacran.webp",
+  "/images/works/alacran.webp",
   "/images/works/khangi.webp",
 ];
 
