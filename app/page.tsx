@@ -25,9 +25,14 @@ const designs = [
 ];
 
 const objects = [
-  "/images/objects/object1.webp",
-  "/images/objects/object2.webp",
-  "/images/objects/object3.webp",
+  "/images/objects/flashsheet1.webp",
+  "/images/objects/flashsheet2.webp",
+  "/images/objects/freehand.webp",
+  "/images/objects/sigil.webp",
+  "/images/objects/moresigils.webp",
+  "/images/objects/fullback.webp",
+  "/images/objects/sheet.webp",
+  "/images/objects/sheet2.webp",
 ];
 
 useEffect(() => {
@@ -324,7 +329,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       </p>
 
       <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
-        Objects
+        Designs
       </h3>
     </div>
   </div>
