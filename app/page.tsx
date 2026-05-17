@@ -271,13 +271,11 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       </h3>
     </div>
 
-    <button className="w-14 h-14 rounded-full border border-white/10 text-3xl hover:bg-white hover:text-black transition">
-      +
-    </button>
+   
   </div>
 
-  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-    {works.map((image, index) => (
+  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
+    {[...works, ...works].map((image, index) => (
       <div
         key={index}
         className="min-w-[320px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
@@ -318,13 +316,11 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       </h3>
     </div>
 
-    <button className="w-14 h-14 rounded-full border border-white/10 text-3xl hover:bg-white hover:text-black transition">
-      +
-    </button>
+    
   </div>
 
-  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-    {designs.map((image, index) => (
+  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
+    {[...designs, ...designs].map((image, index) => (
       <div
         key={index}
         className="min-w-[280px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
@@ -360,9 +356,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       </h3>
     </div>
 
-    <button className="w-14 h-14 rounded-full border border-white/10 text-3xl hover:bg-white hover:text-black transition">
-      +
-    </button>
+  
   </div>
 
   <div className="grid md:grid-cols-3 gap-6">
