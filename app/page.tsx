@@ -18,13 +18,9 @@ export default function TattooStudioSite() {
   "/images/works/khangi.webp",
 ];
 
-const designs = [
-  "/images/designs/design1.webp",
-  "/images/designs/design2.webp",
-  "/images/designs/design3.webp",
-];
 
-const objects = [
+
+const designs = [
   "/images/objects/flashsheet1.webp",
   "/images/objects/flashsheet2.webp",
   "/images/objects/freehand.webp",
@@ -32,7 +28,7 @@ const objects = [
   "/images/objects/moresigils.webp",
   "/images/objects/fullback.webp",
   "/images/objects/sheet.webp",
-  "/images/objects/sheet2.webp",
+  "/images/objects/freehand.webp",
 ];
 
 useEffect(() => {
