@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 
+
 export default function TattooStudioSite() {
  const works = [
   "/images/works/spiral.webp",
@@ -77,6 +78,19 @@ useEffect(() => {
       );
     });
   }, []);
+  
+  const handleBuy = async (printItem: any) => {
+    const res = await fetch("/api/create-preference", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(printItem),
+    });
+
+    const data = await res.json();
+    window.location.href = data.init_point;
+  };
   
   return (
     <main className="bg-black text-white overflow-hidden min-h-screen selection:bg-white selection:text-black">
@@ -349,10 +363,24 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
 
+        {/* INFO BOTTOM */}
         <div className="absolute bottom-0 left-0 p-6">
           <h4 className="uppercase font-black text-2xl">
             Print / Object
           </h4>
+
+          {/* 💳 BOTÓN DE COMPRA */}
+          <button
+            onClick={() =>
+              handleBuy({
+                title: `Print ${index + 1}`,
+                price: 50, // después lo cambiamos por precio real
+              })
+            }
+            className="mt-4 px-4 py-2 bg-white text-black text-sm uppercase font-bold rounded-full hover:scale-105 transition"
+          >
+            Buy Print
+          </button>
         </div>
       </div>
     ))}
