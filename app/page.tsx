@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function TattooStudioSite() {
@@ -24,6 +24,10 @@ export default function TattooStudioSite() {
  
 ];
 
+const [mousePosition, setMousePosition] = useState({
+  x: 0,
+  y: 0,
+});
 
 
 const designs = [
@@ -52,6 +56,21 @@ useEffect(() => {
 
   return () => {
     lenis.destroy();
+  };
+}, []);
+
+useEffect(() => {
+  const handleMouseMove = (e: MouseEvent) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 40;
+    const y = (e.clientY / window.innerHeight - 0.5) * 40;
+
+    setMousePosition({ x, y });
+  };
+
+  window.addEventListener("mousemove", handleMouseMove);
+
+  return () => {
+    window.removeEventListener("mousemove", handleMouseMove);
   };
 }, []);
 
