@@ -3,6 +3,19 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+const [emblaRef] = useEmblaCarousel(
+  {
+    loop: true,
+    dragFree: true,
+  },
+  [
+    AutoScroll({
+      speed: 1,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    }),
+  ]
+);
 import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
@@ -307,8 +320,12 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
     </div>
   </div>
 
-  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide cursor-grab active:cursor-grabbing snap-x snap-mandatory">
-    {[...works, ...works].map((image, index) => (
+<div
+  ref={emblaRef}
+  className="overflow-hidden"
+>
+  <div className="flex gap-6"
+></div>    {[...works, ...works].map((image, index) => (
       <div
         key={index}
         className="min-w-[220px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
