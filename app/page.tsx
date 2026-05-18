@@ -3,23 +3,9 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-const [emblaRef] = useEmblaCarousel(
-  {
-    loop: true,
-    dragFree: true,
-  },
-  [
-    AutoScroll({
-      speed: 1,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-    }),
-  ]
-);
 import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
-
 
 export default function TattooStudioSite() {
  const works = [
@@ -91,19 +77,6 @@ useEffect(() => {
       );
     });
   }, []);
-
-  const handleBuy = async (printItem: any) => {
-    const res = await fetch("/api/create-preference", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(printItem),
-    });
-
-    const data = await res.json();
-    window.location.href = data.init_point;
-  };
   
   return (
     <main className="bg-black text-white overflow-hidden min-h-screen selection:bg-white selection:text-black">
@@ -320,20 +293,16 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
     </div>
   </div>
 
-<div
-  ref={emblaRef}
-  className="overflow-hidden"
->
-  <div className="flex gap-6"
-></div>    {[...works, ...works].map((image, index) => (
+  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
+    {[...works, ...works].map((image, index) => (
       <div
         key={index}
-        className="min-w-[220px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
+        className="min-w-[320px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
       >
         <img
           src={image}
           alt="tattoo"
-          className="w-full h-[320px] md:h-[600px] object-cover group-hover:scale-105 transition duration-700"
+          className="w-full h-[600px] object-cover group-hover:scale-105 transition duration-700"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -370,24 +339,20 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
     {[...designs, ...designs].map((image, index) => (
       <div
         key={index}
-        className="min-w-[200px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
+        className="min-w-[280px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
       >
         <img
           src={image}
           alt="object"
-          className="w-full h-[260px] md:h-[500px] object-cover group-hover:scale-105 transition duration-700"
+          className="w-full h-[500px] object-cover group-hover:scale-105 transition duration-700"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
 
-        {/* INFO BOTTOM */}
         <div className="absolute bottom-0 left-0 p-6">
           <h4 className="uppercase font-black text-2xl">
             Print / Object
           </h4>
-
-          {/* 💳 BOTÓN DE COMPRA <OCULTO por AHORA*/}
-          
         </div>
       </div>
     ))}
