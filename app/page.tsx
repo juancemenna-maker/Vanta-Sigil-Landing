@@ -78,7 +78,7 @@ useEffect(() => {
       );
     });
   }, []);
-  
+
   const handleBuy = async (printItem: any) => {
     const res = await fetch("/api/create-preference", {
       method: "POST",
@@ -307,16 +307,16 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
     </div>
   </div>
 
-  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
+  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide cursor-grab active:cursor-grabbing snap-x snap-mandatory">
     {[...works, ...works].map((image, index) => (
       <div
         key={index}
-        className="min-w-[320px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
+        className="min-w-[220px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
       >
         <img
           src={image}
           alt="tattoo"
-          className="w-full h-[600px] object-cover group-hover:scale-105 transition duration-700"
+          className="w-full h-[320px] md:h-[600px] object-cover group-hover:scale-105 transition duration-700"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -353,12 +353,12 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
     {[...designs, ...designs].map((image, index) => (
       <div
         key={index}
-        className="min-w-[280px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
+        className="min-w-[200px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
       >
         <img
           src={image}
           alt="object"
-          className="w-full h-[500px] object-cover group-hover:scale-105 transition duration-700"
+          className="w-full h-[260px] md:h-[500px] object-cover group-hover:scale-105 transition duration-700"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
@@ -369,18 +369,8 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
             Print / Object
           </h4>
 
-          {/* 💳 BOTÓN DE COMPRA */}
-          <button
-            onClick={() =>
-              handleBuy({
-                title: `Print ${index + 1}`,
-                price: 50, // después lo cambiamos por precio real
-              })
-            }
-            className="mt-4 px-4 py-2 bg-white text-black text-sm uppercase font-bold rounded-full hover:scale-105 transition"
-          >
-            Buy Print
-          </button>
+          {/* 💳 BOTÓN DE COMPRA <OCULTO por AHORA*/}
+          
         </div>
       </div>
     ))}
