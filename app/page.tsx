@@ -2,7 +2,7 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import AutoScroll from "embla-carousel-auto-scroll";
+import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
@@ -35,6 +35,36 @@ const designs = [
   "/images/objects/moresigils.webp",
   "/images/objects/freehand.webp",
 ];
+
+const [worksRef] = useEmblaCarousel(
+  {
+    loop: true,
+    dragFree: true,
+    align: "start",
+  },
+  [
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: false,
+      stopOnMouseEnter: false,
+    }),
+  ]
+);
+
+const [designsRef] = useEmblaCarousel(
+  {
+    loop: true,
+    dragFree: true,
+    align: "start",
+  },
+  [
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: false,
+      stopOnMouseEnter: false,
+    }),
+  ]
+);
 
 useEffect(() => {
   const lenis = new Lenis({
@@ -293,31 +323,33 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
     </div>
   </div>
 
-  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
-    {[...works, ...works].map((image, index) => (
-      <div
-        key={index}
-        className="min-w-[320px] md:min-w-[500px] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
-      >
-        <img
-          src={image}
-          alt="tattoo"
-          className="w-full h-[600px] object-cover group-hover:scale-105 transition duration-700"
-        />
+  <div className="overflow-hidden" ref={worksRef}>
+    <div className="flex gap-6">
+      {works.map((image, index) => (
+        <div
+          key={index}
+          className="flex-[0_0_85%] md:flex-[0_0_42%] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
+        >
+          <img
+            src={image}
+            alt="tattoo"
+            className="w-full h-[420px] md:h-[600px] object-cover group-hover:scale-105 transition duration-700"
+          />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 p-8">
-          <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-2">
-            Work 0{index + 1}
-          </p>
+          <div className="absolute bottom-0 left-0 p-8">
+            <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-2">
+              Work 0{index + 1}
+            </p>
 
-          <h4 className="text-3xl uppercase font-black">
-            Vanta Piece
-          </h4>
+            <h4 className="text-3xl uppercase font-black">
+              Vanta Piece
+            </h4>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
 
@@ -335,27 +367,29 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
     </div>
   </div>
 
-  <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide animate-marquee">
-    {[...designs, ...designs].map((image, index) => (
-      <div
-        key={index}
-        className="min-w-[280px] md:min-w-[400px] group relative overflow-hidden rounded-[2rem] border border-white/10"
-      >
-        <img
-          src={image}
-          alt="object"
-          className="w-full h-[500px] object-cover group-hover:scale-105 transition duration-700"
-        />
+  <div className="overflow-hidden" ref={designsRef}>
+    <div className="flex gap-6">
+      {designs.map((image, index) => (
+        <div
+          key={index}
+          className="flex-[0_0_80%] md:flex-[0_0_35%] group relative overflow-hidden rounded-[2rem] border border-white/10"
+        >
+          <img
+            src={image}
+            alt="object"
+            className="w-full h-[380px] md:h-[500px] object-cover group-hover:scale-105 transition duration-700"
+          />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 p-6">
-          <h4 className="uppercase font-black text-2xl">
-            Print / Object
-          </h4>
+          <div className="absolute bottom-0 left-0 p-6">
+            <h4 className="uppercase font-black text-2xl">
+              Print / Object
+            </h4>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
 
