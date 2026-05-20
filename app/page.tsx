@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export default function TattooStudioSite() {
  const works = [
   "/images/works/spiral.webp",
-  "/images/works/bunnie.webp",
+  "/images/works/bunnie.jpeg",
   "/images/works/chakras.webp",
   "/images/works/alacran.webp",
    "/images/works/khangi.webp",
