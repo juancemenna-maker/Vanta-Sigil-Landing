@@ -409,54 +409,52 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 
   <div className="grid md:grid-cols-3 gap-6">
-    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] flex flex-col justify-between">
-      <div>
+  {[
+    {
+      number: "001",
+      title: "Jewelry",
+    },
+    {
+      number: "002",
+      title: "Apparel",
+    },
+    {
+      number: "003",
+      title: "Sigil Objects",
+    },
+  ].map((item, index) => (
+    <div
+      key={index}
+      className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] overflow-hidden flex flex-col justify-between transition duration-500 hover:border-white/30"
+    >
+      {/* CONTENT */}
+      <div className="relative z-10">
         <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
-          001
+          {item.number}
         </p>
 
         <h4 className="text-3xl uppercase font-black">
-          Jewelry
+          {item.title}
         </h4>
       </div>
 
-      <p className="text-white/40 text-sm uppercase tracking-[0.2em]">
-        Coming Soon
-      </p>
-    </div>
-
-    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] flex flex-col justify-between">
-      <div>
-        <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
-          002
-        </p>
-
-        <h4 className="text-3xl uppercase font-black">
-          Apparel
-        </h4>
-      </div>
-
-      <p className="text-white/40 text-sm uppercase tracking-[0.2em]">
+      {/* DEFAULT TEXT */}
+      <p className="relative z-10 text-white/40 text-sm uppercase tracking-[0.2em] transition duration-500 group-hover:opacity-0">
         Future Drop
       </p>
-    </div>
 
-    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] flex flex-col justify-between">
-      <div>
-        <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
-          003
+      {/* HOVER OVERLAY */}
+      <div className="absolute inset-0 bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+        <p className="uppercase tracking-[0.4em] text-sm font-black">
+          Coming Soon
         </p>
-
-        <h4 className="text-3xl uppercase font-black">
-          Sigil Objects
-        </h4>
       </div>
 
-      <p className="text-white/40 text-sm uppercase tracking-[0.2em]">
-        Archive Pending
-      </p>
+      {/* GLOW */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
     </div>
-  </div>
+  ))}
+</div>
 </section>
 
       {/* STRIP */}
