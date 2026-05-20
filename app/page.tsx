@@ -383,11 +383,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
 
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
 
-          <div className="absolute bottom-0 left-0 p-6">
-            <h4 className="uppercase font-black text-2xl">
-              Print / Object
-            </h4>
-          </div>
+        
         </div>
       ))}
     </div>
