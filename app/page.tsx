@@ -2,10 +2,10 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { motion } from "framer-motion";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { motion, AnimatePresence } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function TattooStudioSite() {
  const works = [
@@ -37,6 +37,11 @@ const designs = [
   "/images/objects/freehan.webp",
 ];
 
+
+
+
+const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
 const [worksRef] = useEmblaCarousel(
   {
     loop: true,
@@ -44,10 +49,11 @@ const [worksRef] = useEmblaCarousel(
     align: "start",
   },
   [
-    Autoplay({
-      delay: 5000,
+    AutoScroll({
+      speed: 0.6,
+      startDelay: 5000,
       stopOnInteraction: false,
-      stopOnMouseEnter: false,
+      stopOnMouseEnter: true,
     }),
   ]
 );
@@ -59,10 +65,11 @@ const [designsRef] = useEmblaCarousel(
     align: "start",
   },
   [
-    Autoplay({
-      delay: 5000,
+    AutoScroll({
+      speed: 0.5,
+      startDelay: 5000,
       stopOnInteraction: false,
-      stopOnMouseEnter: false,
+      stopOnMouseEnter: true,
     }),
   ]
 );
@@ -329,24 +336,27 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       {works.map((image, index) => (
         <div
           key={index}
-          className="flex-[0_0_85%] md:flex-[0_0_42%] group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]"
+          onClick={() => setSelectedImage(image)}
+          className="embla-slide shrink-0 flex-[0_0_85%] md:flex-[0_0_42%] cursor-pointer"
         >
-          <img
-            src={image}
-            alt="tattoo"
-            className="w-full h-[420px] md:h-[600px] object-cover group-hover:scale-105 transition duration-700"
-          />
+          <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
+            <img
+              src={image}
+              alt="tattoo"
+              className="w-full h-[420px] md:h-[600px] object-cover transition duration-700 group-hover:scale-105"
+            />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-          <div className="absolute bottom-0 left-0 p-8">
-            <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-2">
-              Work 0{index + 1}
-            </p>
+            <div className="absolute bottom-0 left-0 p-8">
+              <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-2">
+                Work 0{index + 1}
+              </p>
 
-            <h4 className="text-3xl uppercase font-black">
-              Vanta Piece
-            </h4>
+              <h4 className="text-3xl uppercase font-black">
+                Vanta Piece
+              </h4>
+            </div>
           </div>
         </div>
       ))}
@@ -373,17 +383,18 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       {designs.map((image, index) => (
         <div
           key={index}
-          className="flex-[0_0_80%] md:flex-[0_0_35%] group relative overflow-hidden rounded-[2rem] border border-white/10"
+          onClick={() => setSelectedImage(image)}
+          className="embla-slide shrink-0 flex-[0_0_80%] md:flex-[0_0_35%] cursor-pointer"
         >
-          <img
-            src={image}
-            alt="object"
-            className="w-full h-[380px] md:h-[500px] object-cover group-hover:scale-105 transition duration-700"
-          />
+          <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02]">
+            <img
+              src={image}
+              alt="object"
+              className="w-full h-[380px] md:h-[500px] object-cover transition duration-700 group-hover:scale-105"
+            />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-
-        
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+          </div>
         </div>
       ))}
     </div>
@@ -542,6 +553,29 @@ Please attach your references in this chat.`;
   </button>
 </form>
       </section>
+
+{/* FULLSCREEN IMAGE VIEWER */}
+{selectedImage && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    onClick={() => setSelectedImage(null)}
+    className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6 cursor-pointer"
+  >
+    <motion.img
+      initial={{ scale: 0.92, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      src={selectedImage}
+      alt=""
+      className="max-w-[95vw] max-h-[92vh] object-contain rounded-[2rem] shadow-2xl"
+    />
+  </motion.div>
+)}
 
       {/* FOOTER */}
       <footer

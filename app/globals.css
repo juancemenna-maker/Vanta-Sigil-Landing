@@ -65,3 +65,7 @@ body {
   z-index: 9999;
   transition: transform 0.15s ease-out;
 }
+
+.embla-slide {
+  transform: translate3d(0, 0, 0);
+}
