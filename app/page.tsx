@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
 
+
 export default function TattooStudioSite() {
  const works = [
   "/images/works/spiral.webp",
@@ -554,27 +555,43 @@ Please attach your references in this chat.`;
       </section>
 
 {/* FULLSCREEN IMAGE VIEWER */}
-{selectedImage && (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    onClick={() => setSelectedImage(null)}
-    className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6 cursor-pointer"
-  >
-    <motion.img
-      initial={{ scale: 0.92, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      src={selectedImage}
-      alt=""
-      className="max-w-[95vw] max-h-[92vh] object-contain rounded-[2rem] shadow-2xl"
-    />
-  </motion.div>
-)}
+<AnimatePresence>
+  {selectedImage && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.35 }}
+      onClick={() => setSelectedImage(null)}
+      className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6 cursor-pointer"
+    >
+      <motion.img
+        initial={{
+          scale: 0.92,
+          opacity: 0,
+          y: 20,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          scale: 0.96,
+          opacity: 0,
+          y: 10,
+        }}
+        transition={{
+          duration: 0.45,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        src={selectedImage}
+        alt=""
+        className="max-w-[95vw] max-h-[92vh] object-contain rounded-[2rem] shadow-2xl"
+      />
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* FOOTER */}
       <footer
