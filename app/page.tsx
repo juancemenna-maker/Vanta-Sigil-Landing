@@ -331,12 +331,12 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 
   <div className="overflow-hidden" ref={worksRef}>
-    <div className="flex gap-6 pr-6">
+    <div className="flex">
       {works.map((image, index) => (
         <div
           key={index}
           onClick={() => setSelectedImage(image)}
-          className="embla-slide shrink-0 flex-[0_0_85%] md:flex-[0_0_42%] cursor-pointer"
+          className="embla-slide shrink-0 pl-6 flex-[0_0_85%] md:flex-[0_0_42%] cursor-pointer"
         >
           <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
             <img
@@ -378,12 +378,12 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 
   <div className="overflow-hidden" ref={designsRef}>
-    <div className="flex gap-6" pr-6>
+    <div className="flex">
       {designs.map((image, index) => (
         <div
           key={index}
           onClick={() => setSelectedImage(image)}
-          className="embla-slide shrink-0 flex-[0_0_80%] md:flex-[0_0_35%] cursor-pointer"
+          className="embla-slide shrink-0 pl-6 flex-[0_0_80%] md:flex-[0_0_35%] cursor-pointer"
         >
           <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02]">
             <img
