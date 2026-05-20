@@ -302,19 +302,38 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
 </motion.div>
 </section>
 
-{/* MANIFESTO */}
-<section className="max-w-5xl mx-auto px-6 py-32 text-center">
-  <p className="uppercase tracking-[0.4em] text-white/30 text-xs mb-8">
-    Manifesto
-  </p>
+{/* MANIFEST */}
+<section className="relative overflow-hidden border-t border-white/10 bg-black py-40">
 
-  <h3 className="text-3xl md:text-6xl uppercase font-black leading-[1.1] tracking-[-0.04em] text-white/90">
-    Tattooing as identity architecture.
-    <br />
-    Dark symbolism, cyber sigils,
-    <br />
-    brutal textures and skin rituals.
-  </h3>
+  {/* Background Watermark */}
+  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+    <div className="select-none text-[22rem] font-thin tracking-[0.4em] text-white/[0.03] blur-[1px]">
+      •●•
+    </div>
+  </div>
+
+  {/* Noise / Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
+
+  {/* Content */}
+  <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
+
+    {/* Top Symbol */}
+    <div className="mb-10 text-sm tracking-[0.8em] text-white/40">
+      •●•
+    </div>
+
+    {/* Main Statement */}
+    <h2 className="font-light uppercase tracking-[0.55em] text-white text-2xl md:text-4xl">
+      Built with intention
+    </h2>
+
+    {/* Bottom Marker */}
+    <div className="mt-12 text-xs tracking-[0.6em] text-white/30">
+      +
+    </div>
+
+  </div>
 </section>
 
 {/* WORKS */}
