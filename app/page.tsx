@@ -18,7 +18,6 @@ export default function TattooStudioSite() {
    "/images/works/handsigil.webp",
   "/images/works/mc-employee.webp",
   "/images/works/kohsamui.webp",
-  
   "/images/works/backsigil.webp",
   
  
@@ -332,7 +331,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 
   <div className="overflow-hidden" ref={worksRef}>
-    <div className="flex gap-6">
+    <div className="flex gap-6 pr-6">
       {works.map((image, index) => (
         <div
           key={index}
@@ -379,7 +378,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   </div>
 
   <div className="overflow-hidden" ref={designsRef}>
-    <div className="flex gap-6">
+    <div className="flex gap-6" pr-6>
       {designs.map((image, index) => (
         <div
           key={index}
