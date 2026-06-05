@@ -343,7 +343,7 @@ return (
     </div>
 
     {/* Main Statement */}
-    <h2 className="font-black uppercase tracking-[0.15em] text-white text-3xl md:text-5xl leading-[1.2]">
+    <h2 className="font-light tracking-[0.12em] text-white text-2xl md:text-4xl leading-[1.5]">
       Formas simbólicas para habitar el cuerpo, el espacio y la imaginación.
     </h2>
 
