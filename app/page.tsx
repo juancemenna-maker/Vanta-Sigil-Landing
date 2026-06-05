@@ -343,8 +343,10 @@ return (
     </div>
 
     {/* Main Statement */}
-    <h2 className="uppercase tracking-[0.45em] text-white/70 text-xs md:text-sm font-black">
-      Formas simbólicas para habitar el cuerpo, el espacio y la imaginación.
+    <h2 className="uppercase tracking-[0.45em] text-white/70 text-s md:text-sm font-black">
+      Formas simbólicas para habitar 
+      el cuerpo, el espacio 
+      y la imaginación.
     </h2>
 
     {/* Bottom Marker */}
