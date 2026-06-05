@@ -8,6 +8,7 @@ import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
 
 
+
 export default function TattooStudioSite() {
  const works = [
   "/images/works/spiral.webp",
@@ -23,6 +24,7 @@ export default function TattooStudioSite() {
   
  
 ];
+
 
 
 
@@ -80,6 +82,9 @@ useEffect(() => {
     smoothWheel: true,
   });
 
+  // expose globally
+  (window as any).lenis = lenis;
+
   function raf(time: number) {
     lenis.raf(time);
     requestAnimationFrame(raf);
@@ -116,10 +121,13 @@ useEffect(() => {
     });
   }, []);
   
-  return (
+return (
+  <>
     <main className="bg-black text-white overflow-hidden min-h-screen selection:bg-white selection:text-black">
-          <div className="cursor-dot" />
-          <div className="cursor-outline" />
+      <div className="cursor-dot" />
+      <div className="cursor-outline" />
+
+      
       {/* BACKGROUND */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
@@ -139,168 +147,179 @@ useEffect(() => {
           </div>
 
           <nav className="hidden md:flex items-center gap-10 uppercase tracking-[0.25em] text-xs text-white/60">
-            <a href="#work" className="hover:text-white transition">
-              Work
-            </a>
+          <button
+            onClick={() => (window as any).lenis?.scrollTo("#work")}
+            className="hover:text-white transition"
+          >
+            Piezas
+          </button>
 
-            <a href="#archive" className="hover:text-white transition">
-              Archive
-            </a>
+          <button
+            onClick={() => (window as any).lenis?.scrollTo("#archive")}
+            className="hover:text-white transition"
+          >
+            Visiones
+          </button>
 
-            <a href="#booking" className="hover:text-white transition">
-              Booking
-            </a>
+          <button
+            onClick={() => (window as any).lenis?.scrollTo("#booking")}
+            className="hover:text-white transition"
+          >
+            Turnos
+          </button>
 
-            <a href="#contact" className="hover:text-white transition">
-              Contact
-            </a>
-          </nav>
+          <button
+            onClick={() => (window as any).lenis?.scrollTo("#contact")}
+            className="hover:text-white transition"
+          >
+            Contacto
+          </button>
+        </nav>
         </div>
       </header>
 
      
       {/* HERO */}
-<section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6">
+        <section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6">
 
 
-  {/* BACKGROUND */}
-  <div className="absolute inset-0 bg-black" />
+          {/* BACKGROUND */}
+          <div className="absolute inset-0 bg-black" />
 
-  {/* GRAIN */}
-  <div className="absolute inset-0 opacity-[0.04] mix-blend-screen bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+          {/* GRAIN */}
+          <div className="absolute inset-0 opacity-[0.04] mix-blend-screen bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-  {/* FLOATING SIGILS COMPOSITION */}
-<motion.img
-  src="/images/sigils-combined.webp"
-  alt=""
-  animate={{
-    y: [0, -20, 0],
-    rotate: [0, 1.5, -1.5, 0],
-    scale: [1, 1.02, 1],
-  }}
-  transition={{
-    duration: 12,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
-className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen pointer-events-none select-none will-change-transform"/>
+          {/* FLOATING SIGILS COMPOSITION */}
+        <motion.img
+          src="/images/sigils-combined.webp"
+          alt=""
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 1.5, -1.5, 0],
+            scale: [1, 1.02, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen pointer-events-none select-none will-change-transform"/>
 
-{/* PARTICLES */}
-<div className="absolute inset-0 overflow-hidden pointer-events-none">
-  {[...Array(20)].map((_, i) => (
-    <motion.div
-      key={i}
-      className="absolute w-[2px] h-[2px] bg-white rounded-full opacity-20"
-      initial={{
-        x: Math.random() * 2000,
-        y: Math.random() * 1200,
-      }}
-      animate={{
-        y: [null, -100],
-        opacity: [0, 0.3, 0],
-      }}
-      transition={{
-        duration: 5 + Math.random() * 10,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    />
-  ))}
-</div>
+        {/* PARTICLES */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-[2px] h-[2px] bg-white rounded-full opacity-20"
+              initial={{
+                x: Math.random() * 2000,
+                y: Math.random() * 1200,
+              }}
+              animate={{
+                y: [null, -100],
+                opacity: [0, 0.3, 0],
+              }}
+              transition={{
+                duration: 5 + Math.random() * 10,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+          ))}
+        </div>
 
-{/* EXTRA GLOW */}
-<div className="absolute w-[1000px] h-[1000px] rounded-full bg-white/[0.03] blur-[220px]" />
+        {/* EXTRA GLOW */}
+        <div className="absolute w-[1000px] h-[1000px] rounded-full bg-white/[0.03] blur-[220px]" />
 
-  {/* SIDE GLYPH */}
-  <motion.img
-    src="/images/sigil3.png"
-    alt=""
-    animate={{
-      y: [0, 15, 0],
-    }}
-    transition={{
-      duration: 10,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="absolute right-10 top-1/2 -translate-y-1/2 h-[70vh] opacity-[0.05] hidden md:block"
-  />
+          {/* SIDE GLYPH */}
+          <motion.img
+            src="/images/sigil3.png"
+            alt=""
+            animate={{
+              y: [0, 15, 0],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute right-10 top-1/2 -translate-y-1/2 h-[70vh] opacity-[0.05] hidden md:block"
+          />
 
-  {/* GLOW */}
-  <div className="absolute w-[700px] h-[700px] rounded-full bg-white/10 blur-[180px]" />
+          {/* GLOW */}
+          <div className="absolute w-[700px] h-[700px] rounded-full bg-white/10 blur-[180px]" />
 
-{/* CONTENT */}
-<motion.div
-  initial={{ opacity: 0, y: 80 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    duration: 2.8,
-    ease: [0.22, 1, 0.36, 1],
-  }}
-  className="relative z-20 text-center max-w-5xl"
->
-  <motion.p
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ delay: 0.6, duration: 1.4 }}
-    className="uppercase tracking-[0.6em] text-white/40 text-xs mb-6"
-  >
-    Buenos Aires · Tattoo · Objects · Ritual Design
-  </motion.p>
+        {/* CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 2.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="relative z-20 text-center max-w-5xl"
+        >
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 1.4 }}
+            className="uppercase tracking-[0.6em] text-white/40 text-xs mb-6"
+          >
+            Buenos Aires · Tatuajes · Objetos · Diseño Ritual
+          </motion.p>
 
-  <motion.h1
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{
-      delay: 0.8,
-      duration: 2,
-      ease: [0.22, 1, 0.36, 1],
-    }}
-    className="text-6xl md:text-[9rem] font-black uppercase tracking-[-0.08em] leading-none mb-8"
-  >
-    Vanta
-    <br />
-    Sigil
-  </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.8,
+              duration: 2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="text-6xl md:text-[9rem] font-black uppercase tracking-[-0.08em] leading-none mb-8"
+          >
+            Vanta
+            <br />
+            Sigil
+          </motion.h1>
 
-  <motion.p
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{
-      delay: 1.2,
-      duration: 1.6,
-    }}
-    className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
-  >
-    Tattoo studio and experimental visual archive merging blackwork,
-    symbolic systems, cyber aesthetics and collectible objects.
-  </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 1.2,
+              duration: 1.6,
+            }}
+            className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
+          >
+            Estudio creativo y universo visual que fusiona tatuajes, simbolismo ancestral y objetos contemporáneos.
+          </motion.p>
 
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{
-      delay: 1.5,
-      duration: 1.4,
-    }}
-    className="flex flex-col md:flex-row gap-4 justify-center"
-  >
-    <a
-      href="#booking"
-      className="px-8 py-5 rounded-full bg-white text-black uppercase tracking-[0.3em] text-xs font-black hover:scale-105 transition"
-    >
-      Request Session
-    </a>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 1.5,
+              duration: 1.4,
+            }}
+            className="flex flex-col md:flex-row gap-4 justify-center"
+          >
+           <button
+            onClick={() => (window as any).lenis?.scrollTo("#booking")}
+            className="px-8 py-5 rounded-full bg-white text-black uppercase tracking-[0.3em] text-xs font-black hover:scale-105 transition"
+          >
+            Solicitar Turno
+          </button>
 
-    <a
-      href="#work"
-      className="px-8 py-5 rounded-full border border-white/10 uppercase tracking-[0.3em] text-xs text-white/70 hover:bg-white hover:text-black transition"
-    >
-      Explore Archive
-    </a>
-  </motion.div>
-</motion.div>
-</section>
+          <button
+            onClick={() => (window as any).lenis?.scrollTo("#work")}
+            className="px-8 py-5 rounded-full border border-white/10 uppercase tracking-[0.3em] text-xs text-white/70 hover:bg-white hover:text-black transition"
+          >
+            Explorar Piezas
+          </button>
+          </motion.div>
+        </motion.div>
+        </section>
 
 {/* MANIFEST */}
 <section className="relative overflow-hidden border-t border-white/10 bg-black py-40">
@@ -325,7 +344,7 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
 
     {/* Main Statement */}
     <h2 className="font-light uppercase tracking-[0.55em] text-white text-2xl md:text-4xl">
-      Built with intention
+      Formas simbólicas para habitar el cuerpo, el espacio y la imaginación.
     </h2>
 
     {/* Bottom Marker */}
@@ -341,11 +360,11 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   <div className="flex items-center justify-between mb-10">
     <div>
       <p className="uppercase tracking-[0.3em] text-white/30 text-xs mb-3">
-        Archive
+        Archivo 
       </p>
 
       <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
-        Works
+        Piezas
       </h3>
     </div>
   </div>
@@ -369,11 +388,11 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
 
             <div className="absolute bottom-0 left-0 p-8">
               <p className="uppercase tracking-[0.3em] text-xs text-white/40 mb-2">
-                Work 0{index + 1}
+                Pieza 0{index + 1}
               </p>
 
               <h4 className="text-3xl uppercase font-black">
-                Vanta Piece
+                Pieza Vanta 
               </h4>
             </div>
           </div>
@@ -388,11 +407,11 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   <div className="flex items-center justify-between mb-10">
     <div>
       <p className="uppercase tracking-[0.3em] text-white/30 text-xs mb-3">
-        Visual Collection
+        Coleccion Visual
       </p>
 
       <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
-        Designs
+        Visiones
       </h3>
     </div>
   </div>
@@ -425,11 +444,11 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   <div className="flex items-center justify-between mb-10">
     <div>
       <p className="uppercase tracking-[0.3em] text-white/30 text-xs mb-3">
-        Future Capsules
+        Archivo de artefactos
       </p>
 
       <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
-        Drops
+        Capsulas
       </h3>
     </div>
   </div>
@@ -438,15 +457,15 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
   {[
     {
       number: "001",
-      title: "Jewelry",
+      title: "Joyería",
     },
     {
       number: "002",
-      title: "Apparel",
+      title: "Indumentaria",
     },
     {
       number: "003",
-      title: "Sigil Objects",
+      title: "Artefactos Visuales",
     },
   ].map((item, index) => (
     <div
@@ -466,13 +485,13 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
 
       {/* DEFAULT TEXT */}
       <p className="relative z-10 text-white/40 text-sm uppercase tracking-[0.2em] transition duration-500 group-hover:opacity-0">
-        Future Drop
+        Próxima Cápsula
       </p>
 
       {/* HOVER OVERLAY */}
       <div className="absolute inset-0 bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
         <p className="uppercase tracking-[0.4em] text-sm font-black">
-          Coming Soon
+          PROXIMAMENTE
         </p>
       </div>
 
@@ -503,17 +522,17 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       >
         <div>
           <p className="uppercase tracking-[0.4em] text-white/30 text-xs mb-6">
-            Booking
+            Turnos 
           </p>
 
           <h3 className="text-5xl md:text-7xl font-black uppercase leading-[0.95] tracking-[-0.05em] mb-8">
-            Request
+            Solciitar
             <br />
-            Session
+            Turno
           </h3>
 
           <p className="text-white/50 text-lg leading-relaxed max-w-md">
-            Send references, placement, approximate size and your idea.
+            Enviá referencias, ubicación en el cuerpo, tamaño aproximado y tu idea.
           </p>
         </div>
 
@@ -532,14 +551,14 @@ className="absolute w-[900px] md:w-[1200px] opacity-[0.15] mix-blend-screen poin
       form.elements.namedItem("idea") as HTMLTextAreaElement
     ).value;
 
-    const message = `NEW BOOKING REQUEST
+    const message = `NUEVA SOLICITUD DE TURNO
 
-Name: ${name}
+Nombre: ${name}
 
 Idea:
 ${idea}
 
-Please attach your references in this chat.`;
+Adjuntá tus referencias en este chat.`;
 
     const encodedMessage = encodeURIComponent(message);
 
@@ -552,23 +571,23 @@ Please attach your references in this chat.`;
   <input
     name="name"
     type="text"
-    placeholder="Name"
+    placeholder="Nombre"
     className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
   />
 
   <textarea
-    name="idea"
+    name="Idea"
     rows={7}
-    placeholder="Idea: approximate size, body placement, blackwork or color, concept..."
+    placeholder="Idea: tamaño aproximado, ubicación en el cuerpo, blackwork o color, concepto..."
     className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white/40"
   />
 
   <p className="text-xs uppercase tracking-[0.2em] text-white/30">
-    Attach references directly in the WhatsApp conversation.
+    Adjuntá referencias directamente en la conversación de WhatsApp.
   </p>
 
   <button className="w-full bg-white text-black py-5 rounded-full uppercase tracking-[0.3em] text-xs font-black hover:scale-[1.01] transition">
-    Open WhatsApp Request
+    Abrir Solicitud por Whatsapp
   </button>
 </form>
       </section>
@@ -624,7 +643,7 @@ Please attach your references in this chat.`;
             </h4>
 
             <p className="text-white/40 uppercase tracking-[0.25em] text-xs">
-              Experimental tattoo direction.
+              Dirección de tatuajes experimental
             </p>
           </div>
 
@@ -647,5 +666,6 @@ Please attach your references in this chat.`;
         </div>
       </footer>
     </main>
-  );
+  </>
+);
 }
