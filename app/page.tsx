@@ -31,6 +31,7 @@ export default function TattooStudioSite() {
 const designs = [
   "/images/objects/drop001_alientech_shirt.webp",
   "/images/objects/metal_elephants.webp",
+  "/images/objects/elephants_shirt_back.webp",
    "/images/objects/varios_wantodo.webp",
    "/images/objects/freehand.webp",
    "/images/objects/black_grey_arabprint.webp",
