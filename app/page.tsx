@@ -37,6 +37,11 @@ const designs = [
   "/images/objects/sigil.webp",
   "/images/objects/moresigils.webp",
   "/images/objects/freehan.webp",
+  "/images/objects/bunniescandy.webp",
+  "/images/objects/bunniescyberpunk(1).webp",
+  "/images/objects/bunniesjapanese.webp",
+  "/images/objects/bunniesstreet.webp",
+  "/images/objects/y2k.webp",
 ];
 
 
