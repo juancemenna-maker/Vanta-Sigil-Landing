@@ -36,6 +36,8 @@ const designs = [
    "/images/objects/freehand.webp",
    "/images/objects/black_grey_arabprint.webp",
   "/images/objects/fullback.webp",
+  "/images/objects/THAILAND-WANTODO.webp",
+  "/images/objects/wantodos.30.5.webp",
   "/images/objects/sheet.webp",
   "/images/objects/flashsheet1.webp",
   "/images/objects/flashsheet2.webp",
