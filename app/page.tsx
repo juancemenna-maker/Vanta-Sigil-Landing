@@ -29,22 +29,27 @@ export default function TattooStudioSite() {
 
 
 const designs = [
-  "/images/objects/sheet.webp",
+  "/images/objects/drop001_alientech_shirt.webp",
+  "/images/objects/metal_elephants.webp",
+   "/images/objects/varios_wantodo.webp",
+   "/images/objects/freehand.webp",
+   "/images/objects/black_grey_arabprint.webp",
   "/images/objects/fullback.webp",
+  "/images/objects/sheet.webp",
   "/images/objects/flashsheet1.webp",
   "/images/objects/flashsheet2.webp",
-  "/images/objects/freehand.webp",
+  "/images/objects/black_ancient_tech.webp",
   "/images/objects/sigil.webp",
   "/images/objects/moresigils.webp",
   "/images/objects/freehan.webp",
   "/images/objects/bunniesjapanese.webp",
   "/images/objects/bunniesstreet.webp",
   "/images/objects/y2k.webp",
-  "/images/objects/black_ancient_tech.webp",
-  "/images/objects/black_grey_arabprint.webp",
-  "/images/objects/drop001_alientech_shirt.webp",
-  "/images/objects/metal_elephants.webp",
-  "/images/objects/varios_wantodo.webp",
+  
+  
+  
+  
+ 
 ];
 
 
