@@ -37,11 +37,14 @@ const designs = [
   "/images/objects/sigil.webp",
   "/images/objects/moresigils.webp",
   "/images/objects/freehan.webp",
-  "/images/objects/bunniescandy.webp",
-  "/images/objects/bunniescyberpunk(1).webp",
   "/images/objects/bunniesjapanese.webp",
   "/images/objects/bunniesstreet.webp",
   "/images/objects/y2k.webp",
+  "/images/objects/black_ancient_tech.webp",
+  "/images/objects/black_grey_arabprint.webp",
+  "/images/objects/drop001_alientech_shirt.webp",
+  "/images/objects/metal_elephants.webp",
+  "/images/objects/varios_wantodo.webp",
 ];
 
 
