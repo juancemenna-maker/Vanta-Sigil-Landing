@@ -6,7 +6,8 @@ import AutoScroll from "embla-carousel-auto-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
+import { capsulas, categoriaLabels, Categoria } from "@/app/data/products";
 
 
 export default function TattooStudioSite() {
@@ -90,6 +91,8 @@ const [designsRef] = useEmblaCarousel(
     }),
   ]
 );
+
+
 
 useEffect(() => {
   const lenis = new Lenis({
@@ -463,7 +466,6 @@ return (
       <p className="uppercase tracking-[0.3em] text-white/30 text-xs mb-3">
         Archivo de artefactos
       </p>
-
       <h3 className="text-5xl md:text-7xl font-black uppercase tracking-[-0.05em]">
         Capsulas
       </h3>
@@ -471,52 +473,36 @@ return (
   </div>
 
   <div className="grid md:grid-cols-3 gap-6">
-  {[
-    {
-      number: "001",
-      title: "Joyería",
-    },
-    {
-      number: "002",
-      title: "Indumentaria",
-    },
-    {
-      number: "003",
-      title: "Artefactos Visuales",
-    },
-  ].map((item, index) => (
-    <div
-      key={index}
-      className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] overflow-hidden flex flex-col justify-between transition duration-500 hover:border-white/30"
-    >
-      {/* CONTENT */}
-      <div className="relative z-10">
-        <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
-          {item.number}
-        </p>
+    {(Object.keys(categoriaLabels) as Categoria[]).map((cat, index) => {
+      const hayProductos = capsulas[cat].length > 0;
+      return (
+        <Link key={cat} href={`/capsulas/${cat}`}>
+          <div className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 min-h-[260px] overflow-hidden flex flex-col justify-between transition duration-500 hover:border-white/30">
+            <div className="relative z-10">
+              <p className="text-white/30 uppercase tracking-[0.3em] text-xs mb-4">
+                00{index + 1}
+              </p>
+              <h4 className="text-3xl uppercase font-black">
+                {categoriaLabels[cat]}
+              </h4>
+            </div>
 
-        <h4 className="text-3xl uppercase font-black">
-          {item.title}
-        </h4>
-      </div>
+            <p className="relative z-10 text-white/40 text-sm uppercase tracking-[0.2em] transition duration-500 group-hover:opacity-0">
+              {hayProductos ? "Ver Colección" : "Próxima Cápsula"}
+            </p>
 
-      {/* DEFAULT TEXT */}
-      <p className="relative z-10 text-white/40 text-sm uppercase tracking-[0.2em] transition duration-500 group-hover:opacity-0">
-        Próxima Cápsula
-      </p>
+            <div className="absolute inset-0 bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+              <p className="uppercase tracking-[0.4em] text-sm font-black">
+                {hayProductos ? "VER PRODUCTOS" : "PROXIMAMENTE"}
+              </p>
+            </div>
 
-      {/* HOVER OVERLAY */}
-      <div className="absolute inset-0 bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-        <p className="uppercase tracking-[0.4em] text-sm font-black">
-          PROXIMAMENTE
-        </p>
-      </div>
-
-      {/* GLOW */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
-    </div>
-  ))}
-</div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
+          </div>
+        </Link>
+      );
+    })}
+  </div>
 </section>
 
       {/* STRIP */}
