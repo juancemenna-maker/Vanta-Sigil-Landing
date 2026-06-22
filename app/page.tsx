@@ -115,35 +115,12 @@ useEffect(() => {
   };
 }, []);
 
-useEffect(() => {
-    const dot = document.querySelector(".cursor-dot") as HTMLElement;
-    const outline = document.querySelector(".cursor-outline") as HTMLElement;
 
-    window.addEventListener("mousemove", (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      dot.style.left = `${x}px`;
-      dot.style.top = `${y}px`;
-
-      outline.animate(
-        {
-          left: `${x - 20}px`,
-          top: `${y - 20}px`,
-        },
-        {
-          duration: 80,
-          fill: "forwards",
-        }
-      );
-    });
-  }, []);
   
 return (
   <>
     <main className="bg-black text-white overflow-hidden min-h-screen selection:bg-white selection:text-black">
-      <div className="cursor-dot" />
-      <div className="cursor-outline" />
+      
 
       
       {/* BACKGROUND */}
