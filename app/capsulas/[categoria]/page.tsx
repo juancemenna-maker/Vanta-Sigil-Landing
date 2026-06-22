@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
@@ -13,14 +13,10 @@ import {
   Categoria,
 } from "@/app/data/products";
 
-export default function CapsulaPage({
-  params,
-}: {
-  params: { categoria: string };
-}) {
+export default function CapsulaPage() {
+  const params = useParams();
   const cat = params.categoria as Categoria;
-
-  if (!categoriaLabels[cat]) {
+    if (!categoriaLabels[cat]) {
     notFound();
   }
 
